@@ -1,0 +1,9 @@
+FROM python:3.11-slim
+
+RUN pip3 install flask redis minio requests
+
+WORKDIR /srv
+COPY rest-server.py /srv/
+
+EXPOSE 5000
+CMD ["python3", "-u", "rest-server.py"]
